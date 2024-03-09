@@ -21,6 +21,7 @@ import {RcFile, UploadChangeParam} from 'antd/es/upload';
 import React, {useEffect, useRef, useState} from 'react';
 import {uploadFileUsingPOST} from "@/services/orion-api-backend/fileController";
 import moment from 'moment'
+import { requestConfig } from '@/requestConfig';
 
 const { Paragraph } = Typography;
 
@@ -176,7 +177,7 @@ const Profile: React.FC = () => {
                                     name="file"
                                     listType="picture-circle"
                                     showUploadList={false}
-                                    action="http://localhost:8101/api/file/upload"
+                                    action={`${requestConfig.baseURL}/api/file/upload`}
                                     beforeUpload={beforeUpload}
                                     onChange={handleChange}
                                 >
